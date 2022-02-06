@@ -13,9 +13,11 @@ def output(intOne, intTwo):
     else:
         print('The intergers are the same')
 
+#outputs a scentence with the user's name
 def nameScentence(userName):
     print('Your name is ' + userName + '. Hello ' + userName + '!')
 
+#adds the user's name to a text file
 def addNameToFile(file, userName):
     file.write(userName + '\n')
     file.close()
@@ -27,6 +29,7 @@ textFile = open("Review/UserNames.txt", "a")
 nameScentence(name)
 addNameToFile(textFile, name)
 
+#loop that asks the usere for two numbers until the user wants to exit the loops
 userInput = 'YES'
 while userInput == 'YES':
     while True:
