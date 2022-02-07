@@ -2,14 +2,14 @@
 
 #functions
 #Lists the intergers between the desired variables
-#The solution was looked at when coding this function
+#The solution was looked at when coding the following function
 def output(intOne, intTwo):
-    if(intOne < intTwo):
+    if intOne < intTwo:
         for counter in range(intOne, intTwo + 1):
             print(counter, end=' ')
-    elif(intTwo < intOne):
-        for counter in range(intTwo, intOne + 1):
-            print(counter, end=' ')
+    elif intTwo < intOne :
+        for counterTwo in range(intOne, intTwo - 1, -1):
+            print(counterTwo, end=' ')
     else:
         print('The intergers are the same')
 
@@ -29,7 +29,7 @@ textFile = open("Review/UserNames.txt", "a")
 nameScentence(name)
 addNameToFile(textFile, name)
 
-#loop that asks the usere for two numbers until the user wants to exit the loops
+#loop that asks the user for two numbers until the user wants to exit the loops
 userInput = 'YES'
 while userInput == 'YES':
     while True:
