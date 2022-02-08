@@ -4,16 +4,15 @@ import math
 #functions
 
 #main line
-
-#variables
 userNumber = float(input("Please input a number: "))
 
 numberSquareRoot = math.sqrt(userNumber)
 numberSquared = math.pow(numberSquareRoot, 2)
-roundError = userNumber - numberSquared
+roundingError = userNumber - numberSquared
 
-#prints what is required by the assignment
-print('The square root of your number is: ' + str(numberSquareRoot))
-print(str(numberSquareRoot) + ' squared is: ' + str(numberSquared))
-print('The round off error is: ' + str(roundError))
-
+'''
+Prints the square root of the number, the square root of the number to the powewr of two and the round off error
+'''
+print('The square root of your number is: ', numberSquareRoot)
+print(numberSquareRoot, ' squared is: ', numberSquared)
+print('The round off error is: ', roundingError)

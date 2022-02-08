@@ -1,53 +1,60 @@
 #imports
 
 #functions
-def gregorianEaster(year):
-    a = year % 19
-    b = year // 100
-    c = year % 100
-    d = b // 4
-    e = b % 4
-    f = (8 + b) // 25
-    g = int((b - f + 1)/3)
-    h = (19 * a + b - d - g + 15) % 30
-    i = c // 4
-    k = c % 4
-    j = (32 + 2*e + 2*i - h - k)%7
-    m = (a + 11*h + 22*j)//451
-    month = (h + j -7*m + 114)//31
-    p = (h + j - 7*m + 114)%31
-    day = p + 1
+'''
+@param year represents the year that easter will occur
+This function uses the input from the julian easter date calculator and figures out the gregorian easter date
+'''
+def gregorianEasterCalculator(year):
+    gregorianEasterDate = julianEasterCalculator(year)
+    gregorianEasterDate[0] += 13
 
-    gregorianEasterDate = [day, month, year]
+    if gregorianEasterDate[1] == 3 or gregorianEasterDate[1] == 5 and gregorianEasterDate[0] >= 31:
+        gregorianEasterDate[0] -= 31
+        gregorianEasterDate[1] += 1
+    elif gregorianEasterDate[0] >= 30 and gregorianEasterDate[1] == 4:
+        gregorianEasterDate[0] -= 30
+        gregorianEasterDate[1] += 1
 
     return gregorianEasterDate
 
-def julianEaster(year):
-    julianEasterDate = gregorianEaster(year)
-    julianEasterDate[0] += 13
+'''
+@param year represents the year that easter will occur
+This function uses the Meeus's Julian algorithm to find the date that easter wil be on according to the julian calendar
+'''
+def julianEasterCalculator(year):
 
-    if julianEasterDate[1] == 3 or julianEasterDate[1] == 5:
-        if julianEasterDate[0] >= 31:
-            julianEasterDate[0] = julianEasterDate[0] - 31
-        elif julianEasterDate[1] == 4:
-            julianEasterDate[0] = julianEasterDate[0] - 30
+    a = year % 4
+    b = year % 7
+    c = year % 19
+    d = (19 * c + 15) % 30
+    e = (2 * a + 4 * b - d + 34) % 7
+    month = int(((d + e + 114) / 31))
+    day = ((d + e + 114) % 31) + 1
+
+    julianEasterDate = [day, month]
+
     return julianEasterDate
 
+'''
+@param numerticalMonth represents the numerical value of the month
+This function takes in a numerical value that represents a month and outputs a string of the month
+'''
 def stringMonth(numericalMonth):
     match numericalMonth:
         case 3:
-            month = "March"
+            stringMonth = "March"
         case 4:
-            month = "April"
+            stringMonth = "April"
         case 5:
-            month = "May"
-    return month
+            stringMonth = "May"
+    return stringMonth
 
 #main line
 userYear = int(input('Type in a year '))
 
-easterDateOne = gregorianEaster(userYear)
-easterDateTwo = julianEaster(userYear)
+easterDateOne = gregorianEasterCalculator(userYear)
+easterDateTwo = julianEasterCalculator(userYear)
 
-print("Easter will fall on Sunday, ", easterDateOne[0], ' ', stringMonth(easterDateOne[1]), ' ', easterDateOne[2], ' according to the gregorian calendar')
-print("Easter will fall on Sunday, ", easterDateTwo[0], ' ', stringMonth(easterDateTwo[1]), ' ', easterDateTwo[2], ' according to the julian calendar')
+print("Easter will fall on Sunday, ", easterDateOne[0], ' ', stringMonth(easterDateOne[1]), ' ', userYear, ' according to the gregorian calendar')
+print("Easter will fall on Sunday, ", easterDateTwo[0], ' ', stringMonth(easterDateTwo[1]), ' ', userYear, ' according to the julian calendar')
