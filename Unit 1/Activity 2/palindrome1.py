@@ -33,5 +33,5 @@ print("Words that are the same forwards and backwards are palindromes.\nThis pro
 
 user_input = str(input("Please enter a word:\n"))
 
-print(user_input + " reversed is " + word_reverse(user_input))
+print('\n' +user_input, " reversed is ", word_reverse(user_input))
 palindrome_check(user_input, word_reverse(user_input))
