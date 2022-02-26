@@ -1,0 +1,7 @@
+'''
+'''
+#input
+
+#function
+
+#main line
