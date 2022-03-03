@@ -15,5 +15,5 @@ def word_pyramid(word):
             word_pyramid(word)
     
 #main line
-yuh = "Towering"
+yuh = "rakshaa jeyarajah"
 word_pyramid(list(yuh))
