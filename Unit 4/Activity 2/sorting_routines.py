@@ -65,25 +65,41 @@ def insertion_sort(data, order):
         data[move_item] = insert
     
 def quick_sort(data, low, high, order):
+    '''
+    @param data is the data that will be sorted through
+    @param low is the lowest index of the array
+    @param high is the highest index of the array
+    @param order is what order the array is the array will be sorted in 
+
+    Allows the array to be sorted through using the partition method
+    '''
     if low < high:
         split_point = partition(data, low, high, order)
         quick_sort(data, low, split_point - 1, order)
         quick_sort(data, split_point + 1, high, order)
     
 def partition(data, first, last, order): 
+    '''
+    @param data is the data that will be sorted through
+    @param first is the lowest index of the array
+    @param last is the highest index of the array
+    @param order is what order the array is the array will be sorted in 
+
+    
+    '''
     pivot_value = data[first] 
     left_mark = first + 1 
     right_mark = last 
     done = False
     while not done:
         if order == 1:
-            while data[left_mark] <= pivot_value and left_mark <= right_mark:
+            while left_mark <= right_mark and data[left_mark] <= pivot_value:
                 left_mark = left_mark + 1
 
             while data[right_mark] >= pivot_value and right_mark >= left_mark:
                 right_mark = right_mark - 1
         else:
-            while data[left_mark] >= pivot_value and left_mark <= right_mark:
+            while left_mark <= right_mark and data[left_mark] >= pivot_value:
                 left_mark = left_mark + 1
 
             while data[right_mark] <= pivot_value and right_mark >= left_mark:
@@ -116,14 +132,19 @@ def random_array_maker(array_length):
  
 #main line
 while True:
+    #Asks the user for the length of the array
     while True:
         try:
             array_length = int(input("How many random numbers do you wish to generate?\n"))
+            while array_length <= 0:
+                print("Invalid Input")
+                array_length = int(input("How many random numbers do you wish to generate?\n"))
         except ValueError:
             print("Invalid Input")
         else:
             break
   
+    #Asks the user for what type of sort method they want to be used
     while True:
         try:
             sort_type = int(input("What type of sort would you like to perform\n1. Selection Sort\n2. Bubble Sort\n3. Intersection Sort\n4. Quick Sort\n"))
@@ -134,7 +155,8 @@ while True:
             print("Invalid Input")
         else:
             break
-  
+    
+    #Asks user for what order they want the array to be in
     while True:
         try:
             order_type = int(input("In what order would you like the numbers to be sorted?\n1. Ascending\n2. Decending\n"))
@@ -161,11 +183,13 @@ while True:
         case 3:
             insertion_sort(sort_array, order_type)
         case 4:
-            quick_sort(sort_array, 0, array_length, order_type)
+            quick_sort(sort_array, 0, len(sort_array) - 1, order_type)
     
     for counter in range (0, array_length): 
         print(sort_array[counter] , end = " ")
+    print()
 
+    #Asks the user if they want the program to be run again
     again = str(input("Would you like to go again(YES/NO)?\n"))
     while again.upper() != "YES" and again.upper() != "NO":
         print("Invalid Input! Try again!")
