@@ -8,3 +8,14 @@ DESCRIPTION
 #functions
 
 #main line
+
+class class(object):
+    
+    def __init__(self):
+        
+
+    def __str__(self):
+        '''
+        Returns the properties of the car
+        '''
+        return '{}'.format()
