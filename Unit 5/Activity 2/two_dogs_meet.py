@@ -9,6 +9,16 @@ import time
 
 #functions
 def interaction_checker(dog_one, dog_two, aggression_one, hunger_one, aggression_two, hunger_two):
+    '''
+    @param dog_one is the name of dog one
+    @param dog_two is the name of dog two
+    @param aggression_one is the aggression value of dog one
+    @param hunger_one is the hunger value of dog one
+    @param aggression_two is the aggression value of dog two
+    @param hunger_two is the hunger value of dog two
+
+    Prints out the interaction between two dogs based of their hunger and aggression
+    '''
     dog_one_fight = 0
     dog_two_fight = 0
 
@@ -27,6 +37,14 @@ def interaction_checker(dog_one, dog_two, aggression_one, hunger_one, aggression
         print(dog_one, "and", dog_two, "are fighting")
 
 def change_values(value_to_change, initial_value, dog_name):
+    '''
+    @param value_to_change is the name of the value that will change
+    @param initial_value is the initial value of the value that may be changed
+    @param dog_name is the name of the dog
+
+    Asks the user if they would like to change the desired value. If so, the user can then input a value and
+    the function will return the value
+    '''
     change = str(input("Would you like to change the {} on {}? (YES/NO)\n".format(value_to_change, dog_name)))
     while change.upper() != "YES" and change.upper() != "NO":
         print("Invalid Input! Try again!")
@@ -94,6 +112,8 @@ while True:
     dog_one = dog.Dog(dog_one_name, dog_one_breed, 0, 0)
     dog_two = dog.Dog(dog_two_name, dog_two_breed, 0, 0)
 
+    #Prints the stats of the two dogs
+    print()
     print(dog_one.get_name(), "stats:", dog_one)
     time.sleep(5)
     print()
@@ -115,3 +135,5 @@ while True:
         again = str(input("Would you like to go again(YES/NO)?\n"))
     if again.upper() == "NO":
         break
+
+print("Good bye!")
