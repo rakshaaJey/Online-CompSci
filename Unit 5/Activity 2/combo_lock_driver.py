@@ -1,7 +1,7 @@
 '''
 Rakshaa Jeyarajah
 25 03 2022
-DESCRIPTION
+Allows user to make a lock and guess the combo of the lock
 '''
 #imports
 import combo_lock
