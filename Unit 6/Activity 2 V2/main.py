@@ -15,18 +15,20 @@ while True:
   #Asks the user what they want to do
   print ()
   print ("Hello operator, what will you do?")
-  print ("1 - Display dogs")
+  print ("1 - Display animals")
   print ("2 - Add a dog")
-  print ("3 - Remove a dog")
-  print ("4 - Display shelter costs")
-  print ("5 - Exit shelter")
+  print ("3 - Add a cat")
+  print ("4 - Remove an animal")
+  print ("5 - Display shelter costs")
+  print ("6 - Edit animal")
+  print ("7 - Exit shelter")
 
   while True:
     try:
-      choice = int(input ("Choose an option(1-5): " ))
-      while choice < 1 or choice > 5:
+      choice = int(input ("Choose an option(1-7): " ))
+      while choice < 1 or choice > 7:
         print("Invalid Input")
-        choice = int(input ("Choose an option(1-5): " ))
+        choice = int(input ("Choose an option(1-7): " ))
     
     except ValueError:
       print("Invalid Input!")
@@ -40,11 +42,13 @@ while True:
   elif choice == 2:
     shelter.add_dog()
   elif choice == 3:
-    shelter.remove_dog()
+    shelter.add_cat()
   elif choice == 4:
-    shelter.shelter_cost()
+    shelter.remove_animal()
   elif choice == 5:
+    shelter.shelter_cost()
+  elif choice == 6:
+    shelter.edit_animal()
+  elif choice == 7:
     print("\nGoodbye.")
     break
-  else:
-    print ("Invalid input\n")

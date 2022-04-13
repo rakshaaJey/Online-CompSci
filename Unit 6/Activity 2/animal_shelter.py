@@ -1,19 +1,33 @@
 import dog
 
 class AnimalShelter(object):
+    '''
+    The animal shelter will contain dogs stored in an bytearray
+    '''
     
     def __init__(self):
+        '''
+        Initialize the animal shelter
+        '''
+
+        #List of dogs
         self.dog_list = []
 
         self.fill_list()
     
     def fill_list(self):
+        '''
+        A function to fill the animal shelter with dogs
+        '''
         num_dog = int(input("How many dogs would you like to create? "))
     
         for i in range (0, num_dog):
             self.add_dog()
 
     def shelter_cost(self):
+        '''
+        Calculates the cost of running the animal shelter based on the number of dogs in the shelter
+        '''
         daily_cost = 15 * len(self.dog_list)
         yearly_cost = 365 * daily_cost
         monthly_cost = yearly_cost / 12
@@ -21,7 +35,10 @@ class AnimalShelter(object):
         print("Daily cost: $" + str(daily_cost) + "\nMonthly cost on average: $" + str(monthly_cost) + "\nYearly cost: $" + str(yearly_cost))
     
     def add_dog(self):
-        print("Dog #" + str(len(self.dog_list) + 1))
+        '''
+        Adds a dog to the animal shelter and adds its data to the list of dogs
+        '''
+        print("\nDog #" + str(len(self.dog_list) + 1))
 
         name = str(input("What is the name of the dog?\n"))
 
@@ -40,8 +57,12 @@ class AnimalShelter(object):
 
         self.dog_list.append(dog.Dog(name, age, breed))
 
-    def remove_dog(self):
+        print("Successfully added a dog.")
 
+    def remove_dog(self):
+        '''
+        Allows a dog to be adopted and then removed from the list of dogs
+        '''
         print(self.__str__())
 
         while True:

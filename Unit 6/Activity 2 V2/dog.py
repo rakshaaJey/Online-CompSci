@@ -14,17 +14,12 @@ class Dog(object):
         '''
         Assigns values for the parameters of the dog if none are given
         '''
-        dog_names = ["Chester", "Rover", "Ace", "Sparky", "Fluffy", "Beans", "Foo Foo", "Jeffry", "Cat", "Bear", "Waffle", 
-            "Theodore", "Rocky", "Malika", "Magikarp"]
-        dog_breeds = ["German Shepard", "Golden Retriver", "Dalmatian", "Yorkie", "Shiba", "Spaniel", "Husky", "Bulldog", 
-            "Poodle"]
+        dog_names = ["Chester", "Rover", "Ace", "Sparky", "Fluffy", "Beans", "Foo Foo"]
+        dog_breeds = ["German Shepard", "Golden Retriver", "Dalmatian", "Yorkie", "Shiba", "Spaniel"]
 
         if name == "":
             random_num = random.randint(0, len(dog_names) - 1)
             name = dog_names[random_num]
-
-        if age == -1:
-            age = random.randint(0, 16)
 
         if breed == "":
             random_num = random.randint(0, len(dog_breeds) - 1)
@@ -80,6 +75,6 @@ class Dog(object):
 
     def __str__(self):
         '''
-        Returns the properties of the car
+        Returns the properties of the dog
         '''
         return '{} is a {} year old {}'.format(self.name, self.age, self.breed)
